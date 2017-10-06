@@ -18,6 +18,8 @@ class CreateProductsTable extends Migration
             $table->integer('category_id')->length(10)->unsigned();
             $table->string('name', 191)->unique();
             $table->text('description');
+            $table->decimal('price', 10, 2)->default(0);
+            $table->integer('stock')->unsigned()->default(0);
             $table->string('image_url', 191)->unique();
             $table->timestamps();
         });
