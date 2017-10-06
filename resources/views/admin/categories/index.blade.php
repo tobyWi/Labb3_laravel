@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+  <h1>Categories</h1>
   <div class="panel panel-default">
     <table class="table table-hover">
       <thead>
