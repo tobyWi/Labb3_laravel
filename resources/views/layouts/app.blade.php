@@ -71,7 +71,36 @@
             </div>
         </nav>
 
-        @yield('content')
+        @if(auth()->check())
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a href="">Home</a>
+                  </li>
+                  <li class="list-group-item list-group-item-success">
+                    <a href="{{route('users.show')}}">Users</a>
+                  </li>
+                  <li class="list-group-item list-group-item-success">
+                    <a href="{{route('users.create')}}">Create a new user</a>
+                  </li>
+                  <li class="list-group-item list-group-item-info">
+                    <a href="{{route('category.create')}}">Create Category</a>
+                  </li>
+                  <li class="list-group-item list-group-item-info">
+                    <a href="{{route('category.show')}}">All Categories</a>
+                  </li>
+                </ul>
+              </div>
+                @endif
+              <div class="col-md-8">
+                @yield('content')
+              </div>
+            </div>
+          </div>
+
+
     </div>
 
     <!-- Scripts -->

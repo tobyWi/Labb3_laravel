@@ -18,3 +18,66 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// ADMIN ROUTES
+// Category Routes
+Route::get('/categories', [
+  'uses' => 'CategoriesController@showAll',
+  'as' => 'category.show'
+]);
+
+Route::any('/category/create', [
+  'uses' => 'CategoriesController@create',
+  'as' => 'category.create'
+]);
+
+Route::post('/category/store', [
+  'uses' => 'CategoriesController@store',
+  'as' => 'category.store'
+]);
+
+Route::get('/category/{category}/edit', [
+  'uses' => 'CategoriesController@edit',
+  'as' => 'category.edit'
+]);
+
+Route::post('/category/{id}/update', [
+  'uses' => 'CategoriesController@update',
+  'as' => 'category.update'
+]);
+
+Route::get('/category/{id}/delete', [
+  'uses' => 'CategoriesController@delete',
+  'as' => 'category.delete'
+]);
+
+// User Routes
+Route::get('/users', [
+  'uses' => 'UsersController@showAll',
+  'as' => 'users.show',
+]);
+
+Route::get('/users/create', [
+  'uses' => 'UsersController@create',
+  'as' => 'users.create'
+]);
+
+Route::post('/users/store', [
+  'uses' => 'UsersController@store',
+  'as' => 'users.store'
+]);
+
+Route::get('/user/{user}/edit', [
+  'uses' => 'UsersController@edit',
+  'as' => 'user.edit'
+]);
+
+Route::post('/user/{id}/update', [
+  'uses' => 'UsersController@update',
+  'as' => 'user.update'
+]);
+
+Route::get('/user/{id}/delete', [
+  'uses' => 'UsersController@delete',
+  'as' => 'user.delete'
+]);
