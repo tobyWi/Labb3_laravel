@@ -71,29 +71,38 @@
             </div>
         </nav>
 
-        @if(auth()->check())
           <div class="container">
             <div class="row">
               <div class="col-md-4">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <a href="">Home</a>
-                  </li>
-                  <li class="list-group-item list-group-item-success">
-                    <a href="{{route('users.show')}}">Users</a>
-                  </li>
-                  <li class="list-group-item list-group-item-success">
-                    <a href="{{route('users.create')}}">Create a new user</a>
-                  </li>
-                  <li class="list-group-item list-group-item-info">
-                    <a href="{{route('category.create')}}">Create Category</a>
-                  </li>
-                  <li class="list-group-item list-group-item-info">
-                    <a href="{{route('category.show')}}">All Categories</a>
-                  </li>
-                </ul>
-              </div>
+                @if(auth()->user()->is_admin)
+                    <ul class="list-group">
+                      <li class="list-group-item">
+                        <a href="">Home</a>
+                      </li>
+                      <li class="list-group-item list-group-item-success">
+                        <a href="{{route('users.show')}}">Users</a>
+                      </li>
+                      <li class="list-group-item list-group-item-success">
+                        <a href="{{route('users.create')}}">Create a new user</a>
+                      </li>
+                      <li class="list-group-item list-group-item-info">
+                        <a href="{{route('category.create')}}">Create Category</a>
+                      </li>
+                      <li class="list-group-item list-group-item-info">
+                        <a href="{{route('category.show')}}">All Categories</a>
+                      </li>
+                  @endif
+                      <li class="list-group-item list-group-item-info">
+                        <a href="">Create product</a>
+                      </li>
+                      <li class="list-group-item list-group-item-info">
+                        <a href="">All products</a>
+                      </li>
+                    </ul>
+                @if(!auth()->user()->is_admin)
+
                 @endif
+              </div>
               <div class="col-md-8">
                 @yield('content')
               </div>
