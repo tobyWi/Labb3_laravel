@@ -74,7 +74,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4">
-                @if(auth()->user()->is_admin)
+                @if(auth()->check())
                     <ul class="list-group">
                       <li class="list-group-item">
                         <a href="">Home</a>
@@ -86,20 +86,20 @@
                         <a href="{{route('users.create')}}">Create a new user</a>
                       </li>
                       <li class="list-group-item list-group-item-info">
-                        <a href="{{route('category.create')}}">Create Category</a>
-                      </li>
-                      <li class="list-group-item list-group-item-info">
                         <a href="{{route('category.show')}}">All Categories</a>
                       </li>
-                  @endif
                       <li class="list-group-item list-group-item-info">
-                        <a href="">Create product</a>
+                        <a href="{{route('category.create')}}">Create Category</a>
                       </li>
-                      <li class="list-group-item list-group-item-info">
-                        <a href="">All products</a>
+                <!-- endif -->
+                      <li class="list-group-item list-group-item-danger">
+                        <a href="{{route('products.show')}}">All products</a>
+                      </li>
+                      <li class="list-group-item list-group-item-danger">
+                        <a href="{{route('products.create')}}">Create product</a>
                       </li>
                     </ul>
-                @if(!auth()->user()->is_admin)
+                <!-- if(!auth()->user()->is_admin) -->
 
                 @endif
               </div>
