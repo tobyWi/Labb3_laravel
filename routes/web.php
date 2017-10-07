@@ -101,23 +101,23 @@ Route::group(['prefix'=>'admin', 'middleware' =>'admin'], function () {
     'as' => 'products.create'
   ]);
 
-  // Route::post('/users/store', [
-  //   'uses' => 'UsersController@store',
-  //   'as' => 'users.store'
-  // ]);
-  //
-  // Route::get('/user/{user}/edit', [
-  //   'uses' => 'UsersController@edit',
-  //   'as' => 'user.edit'
-  // ]);
-  //
-  // Route::post('/user/{id}/update', [
-  //   'uses' => 'UsersController@update',
-  //   'as' => 'user.update'
-  // ]);
-  //
-  // Route::get('/user/{id}/delete', [
-  //   'uses' => 'UsersController@delete',
-  //   'as' => 'user.delete'
-  // ]);
+  Route::post('/products/store', [
+    'uses' => 'ProductsController@store',
+    'as' => 'products.store'
+  ]);
+
+  Route::get('/product/{product}/edit', [
+    'uses' => 'ProductsController@edit',
+    'as' => 'product.edit'
+  ]);
+
+  Route::post('/product/{id}/update', [
+    'uses' => 'ProductsController@update',
+    'as' => 'product.update'
+  ]);
+
+  Route::get('/product/{id}/delete', [
+    'uses' => 'ProductsController@delete',
+    'as' => 'product.delete'
+  ]);
 // });
