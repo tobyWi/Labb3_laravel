@@ -1,7 +1,8 @@
 @extends ('layouts.app')
 
 @section ('content')
-  <h1>All Products</h1>
+  <h1>Products with category: {{$cat}}
+  </h1>
     <ul class="list-group text-center">
       <a href="{{route('customers.show')}}">
         <li style="display:inline-block; padding: 0 5px;"><strong>SHOW ALL</strong></li>

@@ -21,4 +21,15 @@ class CustomersController extends Controller
   {
     # code...
   }
+
+  public function filter(Category $category)
+  {
+    // SQL Query here……
+    $cat = $category->name;
+
+    $products = Product::where('category_id', $category->id)->get();
+    $categories = Category::all();
+
+    return view('customers.products.filter')->with('products', $products)->with('categories', $categories)->with('cat', $cat);
+  }
 }

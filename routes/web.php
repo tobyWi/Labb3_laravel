@@ -134,3 +134,8 @@ Route::get('/customers', [
   // 'uses' => 'CustomersController@checkout',
   // 'as' => 'customers.checkout',
 // ]);
+
+Route::get('/customers/{category}/filter', [
+  'uses' => 'CustomersController@filter',
+  'as' => 'products.filter',
+]);
