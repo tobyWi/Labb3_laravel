@@ -74,7 +74,7 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4">
-                @if(auth()->user()->is_admin)
+                @if(auth()->user() && auth()->user()->is_admin)
                     <ul class="list-group">
                       <li class="list-group-item">
                         <a href="">Home</a>
