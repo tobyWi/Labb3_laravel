@@ -10,11 +10,10 @@ class IsAdmin
 
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->is_admin) {
-
-            return $next($request);
+        if (!Auth::user()->is_admin) {
+            return redirect('/');
         }
 
-        return redirect('/');
+        return $next($request);
     }
 }

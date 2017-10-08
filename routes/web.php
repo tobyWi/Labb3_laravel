@@ -23,6 +23,16 @@ Route::get('/categories', [
     'as' => 'category.show'
 ]);
 
+Route::get('/customers/login', [
+    'uses' => 'Auth\CustomerLoginController@showLoginForm',
+    'as' => 'customers.login'
+]);
+
+Route::post('/customers/login', [
+    'uses' => 'Auth\CustomerLoginController@login',
+    'as' => 'customers.attempt'
+]);
+
 // ADMIN ROUTES
 Route::group(['prefix'=>'admin', 'middleware' =>'admin'], function () {
 
