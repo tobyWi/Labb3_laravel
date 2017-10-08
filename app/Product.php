@@ -17,4 +17,8 @@ class Product extends Model
         return $this->hasMany(Order::class);
     }
 
+    protected $fillable = [
+        'name', 'description', 'category_id', 'price', 'stock', 'image_url'
+    ];
+
 }
