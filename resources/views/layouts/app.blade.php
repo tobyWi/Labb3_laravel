@@ -74,33 +74,32 @@
           <div class="container">
             <div class="row">
               <div class="col-md-4">
-                @if(auth()->check())
                     <ul class="list-group">
                       <li class="list-group-item">
                         <a href="">Home</a>
                       </li>
                       <li class="list-group-item list-group-item-success">
-                        <a href="{{route('users.show')}}">Users</a>
+                        <a href="{{route('products.show')}}">All products</a>
                       </li>
                       <li class="list-group-item list-group-item-success">
-                        <a href="{{route('users.create')}}">Create a new user</a>
+                          <a href="{{route('category.show')}}">All Categories</a>
                       </li>
+                      @if(auth()->check())
                       <li class="list-group-item list-group-item-info">
-                        <a href="{{route('category.show')}}">All Categories</a>
-                      </li>
-                      <li class="list-group-item list-group-item-info">
-                        <a href="{{route('category.create')}}">Create Category</a>
+                          <a href="{{route('products.create')}}">Create product</a>
                       </li>
                 <!-- endif -->
-                      <li class="list-group-item list-group-item-danger">
-                        <a href="{{route('products.show')}}">All products (admin)</a>
-                      </li>
-                      <li class="list-group-item list-group-item-danger">
-                        <a href="{{route('products.create')}}">Create product</a>
-                      </li>
-                      <li class="list-group-item list-group-item-warning">
-                        <a href="{{route('customers.show')}}">All products</a>
-                      </li>
+                    <li class="list-group-item"><h4>Admin</h4></li>
+                    <li class="list-group-item list-group-item-danger">
+                        <a href="{{route('users.show')}}">Users</a>
+                    </li>
+                    <li class="list-group-item list-group-item-danger">
+                        <a href="{{route('users.create')}}">Create a new user</a>
+                    </li>
+
+                    <li class="list-group-item list-group-item-danger">
+                          <a href="{{route('category.create')}}">Create Category</a>
+                    </li>
                     </ul>
                 <!-- if(!auth()->user()->is_admin) -->
 

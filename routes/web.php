@@ -11,22 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/products');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+// Category Routes
+Route::get('/categories', [
+    'uses' => 'CategoriesController@showAll',
+    'as' => 'category.show'
+]);
 
 // ADMIN ROUTES
 Route::group(['prefix'=>'admin', 'middleware' =>'admin'], function () {
-  // Category Routes
-  Route::get('/categories', [
-    'uses' => 'CategoriesController@showAll',
-    'as' => 'category.show'
-  ]);
 
   Route::any('/category/create', [
     'uses' => 'CategoriesController@create',
@@ -85,8 +83,6 @@ Route::group(['prefix'=>'admin', 'middleware' =>'admin'], function () {
   ]);
 
 });
-
-
 
 // USER ROUTES
 // Route::group(['prefix'=>'user', 'middleware' =>'auth'], function () {
