@@ -121,3 +121,16 @@ Route::group(['prefix'=>'admin', 'middleware' =>'admin'], function () {
     'as' => 'product.delete'
   ]);
 // });
+
+
+// CUSTOMER ROUTES
+//
+Route::get('/customers', [
+  'uses' => 'CustomersController@showAll',
+  'as' => 'customers.show',
+]);
+
+// Route::get('/customers/', [
+  // 'uses' => 'CustomersController@checkout',
+  // 'as' => 'customers.checkout',
+// ]);

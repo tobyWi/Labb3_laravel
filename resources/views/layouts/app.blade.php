@@ -93,10 +93,13 @@
                       </li>
                 <!-- endif -->
                       <li class="list-group-item list-group-item-danger">
-                        <a href="{{route('products.show')}}">All products</a>
+                        <a href="{{route('products.show')}}">All products (admin)</a>
                       </li>
                       <li class="list-group-item list-group-item-danger">
                         <a href="{{route('products.create')}}">Create product</a>
+                      </li>
+                      <li class="list-group-item list-group-item-warning">
+                        <a href="{{route('customers.show')}}">All products</a>
                       </li>
                     </ul>
                 <!-- if(!auth()->user()->is_admin) -->
