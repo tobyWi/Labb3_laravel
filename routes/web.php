@@ -11,7 +11,7 @@
 |
 */
 
-Route::redirect('/', '/products');
+Route::get('/', 'ProductsController@showAll');
 
 Auth::routes();
 
