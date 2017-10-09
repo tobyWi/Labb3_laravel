@@ -12,4 +12,7 @@ class Order extends Model
         return $this->hasMany(Product::class);
     }
 
+    protected $fillable = [
+        'user_name', 'user_email', 'product_name', 'product_id'
+    ];
 }
