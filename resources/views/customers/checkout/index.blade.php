@@ -21,11 +21,11 @@
         </div>
         <div class="form-group">
           <label for="user_name">Enter your name</label>
-          <input type="text" name="user_name" class="form-control" value="{{Auth::user()->name}}">
+          <input type="text" name="user_name" class="form-control" value="{{Auth::guard('customer')->user()->name}}">
         </div>
         <div class="form-group">
           <label for="user_email">Enter an email</label>
-          <input type="email" name="user_email" class="form-control" value="{{Auth::user()->email}}">
+          <input type="email" name="user_email" class="form-control" value="{{Auth::guard('customer')->user()->email}}">
         </div>
         <div class="form-group">
           <label for="payment">Select a payment method</label>
