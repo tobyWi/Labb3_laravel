@@ -25,7 +25,7 @@ class CustomerLoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'customers';
+    protected $redirectTo = '/customers';
 
     /**
      * Create a new controller instance.
