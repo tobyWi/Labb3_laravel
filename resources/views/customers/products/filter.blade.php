@@ -1,22 +1,22 @@
 @extends ('layouts.app')
 
 @section ('content')
-  <h1>Products with category: {{$cat}}
+  <h1>Products with category: {{$category->name}}
   </h1>
     <ul class="list-group text-center">
       <a href="{{route('customers.show')}}">
         <li style="display:inline-block; padding: 0 5px;"><strong>SHOW ALL</strong></li>
       </a>
-      @foreach ($categories as $category)
-        <a href="{{route('products.filter', ['category' => $category->id])}}">
+      @foreach ($categories as $categoryFilter)
+        <a href="{{route('products.filter', ['category' => $categoryFilter->id])}}">
           <li style="display:inline-block; padding: 0 5px;">
-            {{$category->name}}
+            {{$categoryFilter->name}}
           </li>
         </a>
       @endforeach
     </ul>
   <div class="">
-    @foreach ($products as $product)
+    @foreach ($category->products as $product)
       <div class="col-md-4">
         <ul class="list-group">
           <li class="list-group-item">
@@ -26,13 +26,13 @@
           </li>
           <li class="list-group-item"><strong>Name:</strong> {{$product->name}}</li>
           <li class="list-group-item"><strong>Description:</strong><br /> {{$product->description}}</li>
-          <li class="list-group-item"><strong>Category:</strong> {{$product->category_id}}</li> <!-- Needs category name via db relation -->
+          <li class="list-group-item"><strong>Category:</strong> {{$product->category->name}}</li>
           <li class="list-group-item"><strong>Price:</strong> {{$product->price}}</li>
           <li class="list-group-item"><strong>Stock:</strong> {{$product->stock}}</li>
           <li class="list-group-item">
-            <form class="#" action="#" method="post">
-              <input class="btn btn-danger" type="submit" name="submit" value="Add to Cart">
-            </form>
+            <a href="{{route('customers.checkout', ['id' => $product->id])}}" class="btn btn-danger">
+              Buy
+            </a>
           </li>
         </ul>
       </div>

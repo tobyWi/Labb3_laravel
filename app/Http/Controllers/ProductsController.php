@@ -12,7 +12,6 @@ class ProductsController extends Controller
   {
     $products = Product::all();
     $categories = Category::all();
-    // $categories = Category::select('name')->with('product');
 
     return view('admin.products.index')->with('products', $products)->with('categories', $categories);
   }
