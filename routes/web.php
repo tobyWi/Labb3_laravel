@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CustomersController@showAll');
 
 Auth::routes();
 
@@ -130,12 +128,17 @@ Route::get('/customers', [
   'as' => 'customers.show',
 ]);
 
-// Route::get('/customers/', [
-  // 'uses' => 'CustomersController@checkout',
-  // 'as' => 'customers.checkout',
-// ]);
+Route::get('/customers/{product}/checkout', [
+  'uses' => 'CustomersController@checkout',
+  'as' => 'customers.checkout',
+]);
 
 Route::get('/customers/{category}/filter', [
   'uses' => 'CustomersController@filter',
   'as' => 'products.filter',
+]);
+
+Route::post('/customers/purchase', [
+  'uses' => 'CustomersController@purchase',
+  'as' => 'customers.purchase',
 ]);
