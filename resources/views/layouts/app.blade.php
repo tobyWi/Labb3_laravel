@@ -14,6 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
+  @include('notifi')
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">

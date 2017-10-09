@@ -49,7 +49,7 @@ class ProductsController extends Controller
     ]);
 
     // Onscreen message
-    Session::flash('success', 'Post was created');
+    Session::flash('success', 'Product was created');
 
     // Route back to the same page
     return redirect()->back();

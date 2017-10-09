@@ -33,7 +33,7 @@ class UsersController extends Controller
       'is_admin' => request()->admin
     ]);
 
-    Session::flash('success', 'Post was created');
+    Session::flash('success', 'User was created');
 
     return redirect()->back();
   }
