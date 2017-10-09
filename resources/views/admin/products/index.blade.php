@@ -24,7 +24,7 @@
             </td>
             <td>{{$product->name}}</td>
             <td>{{$product->description}}</td>
-            <td>{{$product->category_id}}</td> <!-- Needs category name via db relation -->
+            <td>{{$product->category->name}}</td> <!-- Needs category name via db relation -->
             <td>{{$product->price}}</td>
             <td>{{$product->stock}}</td>
             <td>

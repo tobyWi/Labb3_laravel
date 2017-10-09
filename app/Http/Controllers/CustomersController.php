@@ -7,6 +7,7 @@ use App\Product;
 use App\Category;
 use App\User;
 use App\Order;
+use App\Customer;
 use Session;
 
 class CustomersController extends Controller
@@ -22,9 +23,9 @@ class CustomersController extends Controller
   public function checkout($id)
   {
     $product = Product::findOrFail($id);
-    $users = User::all(); // Gets collection, I need logged in user
+    $customers = Customer::all();
 
-    return view('customers.checkout.index')->with('product', $product)->with('users', $users);
+    return view('customers.checkout.index')->with('product', $product)->with('customers', $customers);
   }
 
   public function purchase()
