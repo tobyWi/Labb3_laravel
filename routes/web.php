@@ -17,14 +17,14 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/categories', [
+  'uses' => 'CategoriesController@showAll',
+  'as' => 'category.show'
+]);
 
 // ADMIN ROUTES
 Route::group(['prefix'=>'admin', 'middleware' =>'admin'], function () {
   // Category Routes
-  Route::get('/categories', [
-    'uses' => 'CategoriesController@showAll',
-    'as' => 'category.show'
-  ]);
 
   Route::any('/category/create', [
     'uses' => 'CategoriesController@create',
@@ -122,7 +122,22 @@ Route::group(['prefix'=>'admin', 'middleware' =>'admin'], function () {
 
 
 // CUSTOMER ROUTES
-//
+
+Route::get('/customers/login', [
+  'uses' => 'Auth\CustomerLoginController@showLoginForm',
+  'as' => 'customers.login',
+]);
+
+Route::post('/customers/login', [
+  'uses' => 'Auth\CustomerLoginController@login',
+  'as' => 'customers.attempt',
+]);
+
+Route::post('/customers/logout', [
+  'uses' => 'Auth\CustomerLoginController@logout',
+  'as' => 'customers.logout',
+]);
+
 Route::get('/customers', [
   'uses' => 'CustomersController@showAll',
   'as' => 'customers.show',

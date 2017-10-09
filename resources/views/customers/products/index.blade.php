@@ -28,11 +28,13 @@
           <li class="list-group-item"><strong>Category:</strong> {{$product->category->name}}</li>
           <li class="list-group-item"><strong>Price:</strong> {{$product->price}}</li>
           <li class="list-group-item"><strong>Stock:</strong> {{$product->stock}}</li>
-          <li class="list-group-item">
-            <a href="{{route('customers.checkout', ['id' => $product->id])}}" class="btn btn-danger">
-              Buy
-            </a>
-          </li>
+          @if(Auth::user())
+            <li class="list-group-item">
+              <a href="{{route('customers.checkout', ['id' => $product->id])}}" class="btn btn-danger">
+                Buy
+              </a>
+            </li>
+          @endif
         </ul>
       </div>
     @endforeach
