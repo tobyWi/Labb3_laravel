@@ -39,3 +39,11 @@ $factory->define(App\Product::class, function (Faker $faker) {
 
     ];
 });
+
+$factory->define(App\Category::class, function (Faker $faker) {
+    static $password;
+
+    return [
+        'name' => $faker->word
+    ];
+});
