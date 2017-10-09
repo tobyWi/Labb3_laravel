@@ -25,13 +25,13 @@
           </li>
           <li class="list-group-item"><strong>Name:</strong> {{$product->name}}</li>
           <li class="list-group-item"><strong>Description:</strong><br /> {{$product->description}}</li>
-          <li class="list-group-item"><strong>Category:</strong> {{$product->category_id}}</li> <!-- Needs category name via db relation -->
+          <li class="list-group-item"><strong>Category:</strong> {{$product->category->name}}</li>
           <li class="list-group-item"><strong>Price:</strong> {{$product->price}}</li>
           <li class="list-group-item"><strong>Stock:</strong> {{$product->stock}}</li>
           <li class="list-group-item">
-            <form class="#" action="#" method="post">
-              <input class="btn btn-danger" type="submit" name="submit" value="Add to Cart">
-            </form>
+            <a href="{{route('customers.checkout', ['id' => $product->id])}}" class="btn btn-danger">
+              Buy
+            </a>
           </li>
         </ul>
       </div>
