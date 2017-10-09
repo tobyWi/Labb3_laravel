@@ -28,7 +28,7 @@
           <li class="list-group-item"><strong>Category:</strong> {{$product->category->name}}</li>
           <li class="list-group-item"><strong>Price:</strong> {{$product->price}}</li>
           <li class="list-group-item"><strong>Stock:</strong> {{$product->stock}}</li>
-          @if(Auth::user())
+          @if(!Auth::user())
             <li class="list-group-item">
               <a href="{{route('customers.checkout', ['id' => $product->id])}}" class="btn btn-danger">
                 Buy
