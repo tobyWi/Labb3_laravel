@@ -129,31 +129,24 @@
                         <a href="{{route('customers.show')}}">All products</a>
                       </li>
 
-                    @endadmin
+                  @endadmin
 
-                    @auth('customer')
+                  @auth('customer')
 
-                        <li class="list-group-item list-group-item-warning">
-                          <a href="{{route('customers.show')}}">All products</a>
-                        </li>
-                    @endauth
+                      <li class="list-group-item list-group-item-warning">
+                        <a href="{{route('customers.show')}}">All products</a>
+                      </li>
+                  @endauth
 
-                    @if (auth()->user() && !auth()->user()->is_admin)
-                        <li class="list-group-item list-group-item-danger">
-                          <a href="{{route('products.show')}}">All products (Users)</a>
-                        </li>
-                        <li class="list-group-item list-group-item-danger">
-                          <a href="{{route('products.create')}}">Create product</a>
-                        </li>
-                    @endif
+                  @if (auth()->user() && !auth()->user()->is_admin)
+                      <li class="list-group-item list-group-item-danger">
+                        <a href="{{route('products.show')}}">All products (Users)</a>
+                      </li>
+                      <li class="list-group-item list-group-item-danger">
+                        <a href="{{route('products.create')}}">Create product</a>
+                      </li>
+                  @endif
                 </ul>
-
-
-
-
-
-
-                <!-- if(!auth()->user()->is_admin) -->
               </div>
               <div class="col-md-8">
                 @yield('content')
