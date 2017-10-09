@@ -1,9 +1,15 @@
-WELL DONE. YOUR ORDER IS COMPLETE!!!
+@extends ('layouts.app')
 
-button back to store!
+@section ('content')
 
-You paid with ;
 
-$customer = new CustomerController(new Stripe);
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1>Congratulations {{Auth::guard('customer')->user()->name}}</h1>
+      <p>Your order containing the item, <strong>{{$order->product_name}}</strong>
+        is complete</p>
+      <a class="btn btn-danger" href="/customers">Back to Shop</a>
+    </div>
+  </div>
 
-$customer->pay(400);
+@endsection

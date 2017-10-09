@@ -48,7 +48,7 @@ class CustomersController extends Controller
     // Onscreen message
     Session::flash('success', 'Purchase has been made');
     // Show purchase complete page
-    return view('customers.checkout.complete');
+    return view('customers.checkout.complete')->with('order', $order);
   }
 
   public function filter(Category $category)
