@@ -2,7 +2,9 @@
 
 Tobias Wiklund & Colin Sweeney
 
-git clone
-composer install
-php artisan migrate
-php artisan db::seed
+####
+Instructions
+1. git clone
+2. composer install
+3. php artisan migrate
+4. php artisan db::seed
